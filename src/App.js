@@ -1,12 +1,13 @@
 import logo from './logo.svg';
 import './App.css';
+import Counter from './components/counter';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
+        <p className='border'>
           Edit <code>src/App.js</code> here we go angain Jonathon.
         </p>
         <a
@@ -17,6 +18,8 @@ function App() {
         >
           Learn React
         </a>
+        <span>Jonathon</span>
+        <Counter />
       </header>
     </div>
   );
