@@ -4,26 +4,32 @@ class Counter extends Component {
   state = {
     count: [0, 55, 66, 7],
     url: "https://picsum.photos/300",
-    value: 33,
+    // value: this.props.value,
   };
   style = { fontSize: 50 };
   render() {
     return (
       <div>
-        <p>Coolie O</p>
-        Nice to see you here {this.formater()}
+        <hr></hr>
+        Nice to see you here lest {this.formater()}
         {this.renderTag()}
         <button
-          onClick={() => this.increament({ pro: 3 })}
+          onClick={() => this.props.onIncrement(this.props.counter)}
           className="badge badge-primary m-2 text-success"
         >
-          Increament : {this.state.value}
+          Increament now: {this.props.value}
         </button>
         <hr></hr>
         <img src={this.state.url} />
         <p style={this.style} class="text-success">
-          .Loving it
+          Loving it {this.props.children}
         </p>
+        <button
+          onClick={() => this.props.onDelete(this.props.id)}
+          className="btn btn-danger btn-sm m-2"
+        >
+          Delete
+        </button>
       </div>
     );
   }
@@ -35,11 +41,6 @@ class Counter extends Component {
     const short = this.state.count;
     return short[0] === 0 ? "Zero" : short;
   }
-  increament = (pro) => {
-    console.log("Nice", pro);
-    this.setState({ value: this.state.value + 1 });
-    console.log("nice");
-  };
 }
 
 export default Counter;
